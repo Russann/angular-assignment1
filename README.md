@@ -18,11 +18,14 @@ libraries like angular, bootstrap, or jQuery.
 
   * Navigate to your project directory in the terminal. You can do this through
     the desktop app by right-clicking on your repo and selecting `Open in
-    Terminal`. Otherwise, you can open up the Terminal app and `cd` (change
+    Terminal`.
+
+    Otherwise, you can open up the Terminal app and `cd` (change
     directory) to your project. If you open up your project folder in the
     Finder/Explorer, you should be able to type `cd ` (that's a space at the end
     there), and drag your project folder from the Finder into the Terminal
     window.
+
   * Run `npm install`
 
 1. Install client-side dependencies
