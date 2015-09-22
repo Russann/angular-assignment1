@@ -28,6 +28,16 @@ angular
         main.reps = data;
       });
     };
+    main.searchRepsByState = function (state) {
+      reps.repsByState(state).then(function (data) {
+        main.reps = data;
+      });
+    };
+    main.searchSensByState = function (state) {
+      reps.sensByState(state).then(function (data) {
+        main.reps = data;
+      });
+    };
   });
 
 angular
@@ -49,9 +59,23 @@ angular
             return response.data;
           });
       },
+      repsByState: function (state) {
+        return $http
+          .get(host + '/reps/by-state/' + state)
+          .then(function (response) {
+            return response.data;
+          });
+      },
       sensByName: function (name) {
         return $http
           .get(host + '/sens/by-name/' + name)
+          .then(function (response) {
+            return response.data;
+          });
+      },
+      sensByState: function (state) {
+        return $http
+          .get(host + '/sens/by-state/' + state)
           .then(function (response) {
             return response.data;
           });

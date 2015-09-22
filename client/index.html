@@ -51,6 +51,32 @@
         <input id="sens-last-name" class="form-control" type="string" ng-model="main.inputs.sensLastName" />
       </div>
 
+
+
+      <button class="btn btn-info" type="submit">Submit</button>
+    </form>
+
+
+    <form ng-submit="main.searchRepsByState(main.inputs.repsState)" class="form-inline">
+
+      <div class="form-group">
+        <label for="rep-state">Search for a Representative by their state by entering a last name:</label>
+        <input id="rep-state" class="form-control" type="string" ng-model="main.inputs.repsState" />
+      </div>
+
+      <button class="btn btn-info" type="submit">Submit</button>
+    </form>
+
+
+    <form ng-submit="main.searchSensByState(main.inputs.sensState)" class="form-inline">
+
+      <div class="form-group">
+        <label for="sens-state">Search for a Senator by state entering a last name:</label>
+        <input id="sens-state" class="form-control" type="string" ng-model="main.inputs.sensState" />
+      </div>
+
+
+
       <button class="btn btn-info" type="submit">Submit</button>
     </form>
 
