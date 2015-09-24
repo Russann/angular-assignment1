@@ -75,7 +75,7 @@ data and logic:
 // client/js/reps-controller.js
 angular
   .module('RepsApp')
-  .controller([function () {
+  .controller('RepsController', [function () {
     var self = this;
     // This will keep track of the list of members to display
     self.members = [];
@@ -109,7 +109,7 @@ Now we should hit that api to get the data.
 // client/js/reps-controller.js
 angular
   .module('RepsApp')
-  .controller(['$http', function ($http) { // Make sure to add this $http service
+  .controller('RepsController', ['$http', function ($http) { // Make sure to add this $http service
     var self = this;
     self.members = [];
 
