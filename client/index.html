@@ -13,27 +13,47 @@
 </head>
 
 <body>
+
+
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-header">
         <a href="/" class="navbar-brand">Search For Your Representatives</a>
-      </div>
-    </div>
+      </div><!-- container-fluid -->
+    </div><!-- navbar-hearder -->
   </nav>
+
+
 
   <div ng-controller="MainCtrl as main" class="container">
 
-    <form ng-submit="main.searchByZip(main.inputs.zip)" class="form-inline">
 
-      <div class="form-group">
-        <label for="zipcode">Search for a Senator or Representative by entering a Zip Code:</label>
-        <input id="zipcode" class="form-control" type="string" ng-model="main.inputs.zip" />
-      </div>
 
-      <button class="btn btn-info" type="submit">Submit</button>
+
+        <div class="radio">
+      <label>
+        <input type="radio" ng-model="main.congressType" value="reps" />Representatives
+      </label>
+    </div>
+
+
+        <div class="radio">
+      <label>
+        <input type="radio" ng-model="main.congressType" value="sens" />Senators
+      </label>
+    </div>
+
+
+<form class="form-inline">
+  <select class="form-control" ng-model="main.criteria" ng-options ="item as item.label for item in main.apis" ng-change="main.input = ' '"></select>
+
+input class="form-control" ng-model="main.input" autofocus type="text"
+
+
+     <button class="btn btn-info"  type="submit" ng-click="main.criteria.method(main.input)">Submit</button>
     </form>
 
-    <form ng-submit="main.searchRepsByName(main.inputs.repsLastName)" class="form-inline">
+<!--    <form ng-submit="main.searchRepsByName(main.inputs.repsLastName)" class="form-inline">
 
       <div class="form-group">
         <label for="rep-last-name">Search for a Representative and their area by entering a last name:</label>
@@ -76,16 +96,16 @@
       </div>
 
 
-
-      <button class="btn btn-info" type="submit">Submit</button>
-    </form>
-
-
-
+      <button class="btn btn-info" type="text" ng-model="main.input">Submit</button>
+    </form> -->
 
 
     <ul class="list-group">
-      <li class="list-group-item" ng-repeat="rep in main.reps">
+      <li class="list-group-item" ng-show="main.loading">Loading...
+      </li>
+<li class="list-group-item"
+  ng-repeat="rep in main.reps">
+
         <h4 class="list-group-item-heading">{{rep.name}}</h4>
         <p>State: {{rep.state}}</p>
       </li>
